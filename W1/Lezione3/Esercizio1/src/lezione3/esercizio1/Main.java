@@ -8,13 +8,14 @@ public class Main {
 	static int anno = 0;
 
 	public static void main(String[] args) {
-
+		//inserimento input
 		Scanner in = new Scanner(System.in);
 		System.out.println("Inserisci una parola: ");
 		word = in.nextLine();
 		System.out.println( "Inserire un anno:" );
 		anno = in.nextInt();
 		in.close();
+		//Output
 		System.out.println("------------------------");
 		System.out.println(stringaPariDispari(word));
 		System.out.println("------------------------");

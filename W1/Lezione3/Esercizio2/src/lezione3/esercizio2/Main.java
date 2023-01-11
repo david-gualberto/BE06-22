@@ -13,7 +13,7 @@ public class Main {
 		numberToString(number);
 	}
 
-
+	//switch
 	static void numberToString(int number) {
 		switch(number) {
 			case 0:
