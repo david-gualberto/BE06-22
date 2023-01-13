@@ -15,7 +15,7 @@ public abstract class Reproducible extends MediaElements {
 		if ( volume >= 0 && volume <= 10) {
 			this.volume = volume; }
 		else { 
-			System.out.println("Inserire un valore da 0 a 10");
+			System.out.println("Inserire un valore da 1 a 10");
 			}
 	}
 	
@@ -23,7 +23,7 @@ public abstract class Reproducible extends MediaElements {
 		if ( duration >= 0 && duration <= 10) {
 			this.volume = duration; }
 		else { 
-			System.out.println("Inserire un valore da 0 a 10");
+			System.out.println("Inserire un valore da 1 a 10");
 			}
 	}
 
