@@ -65,7 +65,10 @@ public abstract class CatalogoBiblioteca {
 		}
 		
 		public static void eliminaProdotto(ArrayList<CatalogoBiblioteca> catalogo, int codice) {
+			System.out.println("Hai eliminato:");
+			filtro(catalogo, codice);
 			catalogo.removeIf(prodotto -> prodotto.getCodiceISBN() == codice);
+			
 		}
 		
 		public static void filtro(ArrayList<CatalogoBiblioteca> catalogo, int codice){
@@ -83,7 +86,7 @@ public abstract class CatalogoBiblioteca {
 		}
 		
 		
-		public static void aggiungiAlFile(File fileInfo, String catalogo) {
+		public static void aggiungiAlFile(File fileInfo, String catalogo) throws IOException {
 			try {
 				FileUtils.writeStringToFile(fileInfo, catalogo, ENCODING, true);
 			} catch (IOException e) {

@@ -75,6 +75,7 @@ public class Main {
 					System.out.println("Inserire il codice del prodotto da eliminare");
 					int pordEliminato = Integer.parseInt(scanner.nextLine());
 					CatalogoBiblioteca.eliminaProdotto(biblioteca, pordEliminato);
+					System.out.println("------------------");
 					System.out.println("PRODOTTO ELIMINATO");
 					break;
 				case 3: //Ricerca per codice ISBN
