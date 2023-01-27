@@ -113,6 +113,7 @@ public class Main {
 					prestitoByTessera(numeroTess);
 					break;
 				case 9://Ricerca di tutti i prestiti scaduti e non ancora restituiti
+					prestitoScaduto();
 				case 0://Registrazione Utente"
 					aggiungiUtente(DAO.creazioneUtente());
 					System.out.println("Utente creato correttamente");
