@@ -12,49 +12,49 @@ import org.springframework.context.annotation.Scope;
 public class Configuration {
 	@Bean
 	@Scope("prototype")
-	public Topping toppingHam(PizzaBase pizza) {
-		return new Topping(pizza, "Prosciutto", 0.99, 35);
+	public Topping toppingHam() {
+		return new Topping("Prosciutto", 0.99, 35);
 	}
 	
 	@Bean
 	@Scope("prototype")
-	public Topping toppingCheese(PizzaBase pizza) {
-		return new Topping(pizza,"Formaggio", 0.69, 92);
+	public Topping toppingCheese() {
+		return new Topping("Formaggio", 0.69, 92);
 	}
 	@Bean
 	@Scope("prototype")
-	public Topping toppingOnion(PizzaBase pizza) {
-		return new Topping(pizza,"Cipolla", 0.69, 22);
+	public Topping toppingOnion() {
+		return new Topping("Cipolla", 0.69, 22);
 	}
 	@Bean
 	@Scope("prototype")
-	public Topping toppingPineapple(PizzaBase pizza) {
-		return new Topping(pizza,"Ananas", 0.79, 24);
+	public Topping toppingPineapple() {
+		return new Topping("Ananas", 0.79, 24);
 	}
 	@Bean
 	@Scope("prototype")
-	public Topping toppingSalami(PizzaBase pizza) {
-		return new Topping(pizza,"Salame", 0.99, 86);
+	public Topping toppingSalami() {
+		return new Topping("Salame", 0.99, 86);
 	}
 	
 	@Bean
 	@Scope("prototype")
 	public PizzaBase pizzaHawaiian() {
 		List<String> x = new ArrayList<>(Arrays.asList("Pomodoro", "Mozzarella","Prosciutto", "Ananas"));
-		return new PizzaBase("Hawaiian Pizza", 6.49, x , 1024);
+		return new PizzaBase("Hawaiian", 6.49, x , 1024);
 	}
 	
 	@Bean
 	@Scope("prototype")
 	public PizzaBase pizzaSalami() {
 		List<String> x = new ArrayList<>(Arrays.asList("Pomodoro", "Mozzarella","Salame"));
-		return new PizzaBase("Pizza Salami", 5.99, x , 1160);
+		return new PizzaBase("Salami", 5.99, x , 1160);
 	}
 	
 	@Bean
 	@Scope("prototype")
-	public PizzaExtraSize pizzaExtra(PizzaBase pizza) {
-		return new PizzaExtraSize(pizza);
+	public PizzaExtraSize pizzaExtra() {
+		return new PizzaExtraSize();
 	}
 	@Bean
 	@Scope("prototype")
@@ -88,8 +88,15 @@ public class Configuration {
 	
 	@Bean
 	@Scope("prototype")
-	public Ordine ordine1(List<Prodotti> lista) {
-		return new Ordine(1, statoOrdineEnum.in_corso, lista, 2, LocalTime.now());
+	public Ordine ordine1(int numOrd,statoOrdineEnum stato, List<Prodotti> lista, int numCoperti) {
+		return new Ordine(numOrd, stato, lista, numCoperti, LocalTime.now());
+	}
+	
+	
+	@Bean
+	@Scope("prototype")
+	public Tavolo tavolo(int numTav, int maxCoperti,statoTavoloEnum statoTavolo, Ordine ordine) {
+		return new Tavolo(numTav,maxCoperti, statoTavolo, ordine);
 	}
 
 }

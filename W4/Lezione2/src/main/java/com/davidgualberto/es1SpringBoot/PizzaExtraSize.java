@@ -2,25 +2,29 @@ package com.davidgualberto.es1SpringBoot;
 
 
 public class PizzaExtraSize extends PizzaBase {
-		PizzaBase pizza;
-		double calorie = 1.95;
-		double prezzo = 4.15;
+		static double calorie;
+		static double prezzo;
 		
-		public PizzaExtraSize(PizzaBase pizza) {
-			this.pizza = pizza;
-			setPrezzo();
-			setCalorie();
+		public PizzaExtraSize() {
+			this.calorie = 1.95;
+			this.prezzo = 4.15;
 		}
 		
-		public void setPrezzo() {
-			pizza.prezzo = pizza.prezzo + this.prezzo;
+		public static void setPrezzo(PizzaBase pizza) {
+			pizza.prezzo = pizza.prezzo + prezzo;
 		}
 		
-		public void setCalorie() {
-			pizza.calorie = pizza.calorie * this.calorie;
+		public static void setCalorie(PizzaBase pizza) {
+			pizza.calorie = pizza.calorie * calorie;
+		}
+		
+		public static void addExtraSize(PizzaBase pizza) {
+			setPrezzo(pizza);
+			setCalorie(pizza);
+			pizza.setNome(pizza.nome + " Extra Size");
 		}
 		
 		public String toString() {
-			return pizza.nome + " Extra Size " + pizza.ingredienti + " Calorie: " + pizza.calorie + " Prezzo: " + pizza.prezzo;
+			return String.format("%1$-"+ 20+"s","Pizza Extra Size") + String.format("%1$-"+ 70 + "s"," ") + String.format("%1$-"+ 10 + "s","+"+this.prezzo+ "€");
 		}
 }

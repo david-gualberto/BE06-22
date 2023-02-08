@@ -1,8 +1,6 @@
 package com.davidgualberto.es1SpringBoot;
 
-import java.util.List;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,7 +11,9 @@ import lombok.Setter;
 abstract public class Prodotti {
 		String nome;
 		double prezzo;
+		String nota;
 		public Prodotti(String nome, double prezzo) {
+			this.nota=nota;
 			this.nome = nome;
 			this.prezzo = prezzo;
 		}

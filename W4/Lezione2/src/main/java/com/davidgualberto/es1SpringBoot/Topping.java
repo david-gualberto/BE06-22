@@ -5,31 +5,32 @@ import lombok.Getter;
 @Getter
 public class Topping {
 	
-			PizzaBase pizza;
 			String nome;
 			double prezzo;
 			int calorie;
 			
-			public Topping(PizzaBase pizza, String nome, double prezzo, int calorie) {
-				
-				this.pizza = pizza;
+			public Topping(String nome, double prezzo, int calorie) {
 				this.nome = nome;
 				this.prezzo = prezzo;
 				this.calorie = calorie;
-				setPrice();
-				setCalorie();
-
 			}
 			
-		public void setPrice() {
+		public void setPrice(PizzaBase pizza) {
 			pizza.prezzo = pizza.prezzo + this.prezzo;
 			}
 		
 		public String toString() {
-			return this.pizza.nome + " " + pizza.ingredienti +  " Extra: " + this.nome + " Calorie: " + pizza.calorie + " Prezzo: " + pizza.prezzo;
+			return String.format("%1$-"+ 20+"s",this.nome) + String.format("%1$-"+ 60 + "s"," ")+ String.format("%1$-"+ 10 + "s",this.calorie) + String.format("%1$-"+ 10 + "s"," "+this.prezzo+ "€");
+		}
+		public void addTopping(PizzaBase pizza) {
+			setPrice(pizza);
+			setCalorie(pizza);
+			pizza.topping.add(this.nome);
 		}
 		
-		public void setCalorie() {
+		public void setCalorie(PizzaBase pizza) {
 			pizza.calorie = pizza.calorie + this.calorie;
 		}
+		
+		
 }
