@@ -12,7 +12,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Sonda implements Subject {
+public class Sonda implements SondaSubject {
 	
 			int id;
 			double latitudine;

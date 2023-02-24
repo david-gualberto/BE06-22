@@ -31,7 +31,7 @@ public class CentroControllo implements Observer {
 
 	  private void allarmeDipartimento(Sonda s) {
 	    String url = "http://host/alarm?idsonda=" + s.getId() + "&lat=" + s.getLatitudine() + "&lon=" + s.getLongitudine() + "&smokelevel=" + s.getLivelloFumo();
-	    System.out.printf("Dipartimento Avvertito per la Sonda: %nSonda ID: %d  |  Latitudine: %.1f  |  Longitudine: %.1f  |  Livello di Fumo: %d%n", s.getId(),s.getLatitudine(), s.getLongitudine(), s.getLivelloFumo() );
+	    System.out.printf("Dipartimento Avvertito per la Sonda: %nID: %d  |  Latitudine: %.1f  |  Longitudine: %.1f  |  Livello di Fumo: %d%n", s.getId(),s.getLatitudine(), s.getLongitudine(), s.getLivelloFumo() );
 	    System.out.println("url: " +url);
 	  }
 }
