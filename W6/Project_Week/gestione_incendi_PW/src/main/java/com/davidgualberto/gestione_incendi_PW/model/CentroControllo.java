@@ -3,7 +3,16 @@ package com.davidgualberto.gestione_incendi_PW.model;
 
 
 public class CentroControllo implements Observer {
-	  
+	
+	private static CentroControllo instance = null;
+
+	public static CentroControllo getInstance() {
+		if (instance == null) {
+			instance = new CentroControllo();
+		}
+		return instance;
+	}
+	
 	  @Override
 	  public void update(Sonda s) {
 	    if (s.getLivelloFumo() > 5) {

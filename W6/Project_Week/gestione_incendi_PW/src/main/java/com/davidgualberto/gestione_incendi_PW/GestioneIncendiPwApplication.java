@@ -16,7 +16,7 @@ public class GestioneIncendiPwApplication {
 	}
 	
 	public static void allarme() {
-		CentroControllo CC = new CentroControllo();
+		CentroControllo CC = CentroControllo.getInstance();
 
 	    Sonda s1 = new Sonda(1, 45.4, 9.1);
 	    Sonda s2 = new Sonda(2, 37.7, 22.4);
